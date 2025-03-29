@@ -26,7 +26,7 @@ namespace HexColourSlider
             textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
             hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
         }
-        private void LocateIndex(Control Type, int IndexOffset) { index = int.Parse(Type.Name.Substring(IndexOffset)) - 1; }
+        //private void LocateIndex(Control Type, int IndexOffset) { index = int.Parse(Type.Name.Substring(IndexOffset)) - 1; }
         private void calculate(object sender, EventArgs e)
         {
             if (inProgress) return;
@@ -36,15 +36,17 @@ namespace HexColourSlider
 
             if (sender is TrackBar trackBar)
             {
-                LocateIndex(trackBar, TrackBarIndexOffset);
+                //LocateIndex(trackBar, TrackBarIndexOffset);
+                index = int.Parse(trackBar.Name.Substring(TrackBarIndexOffset)) - 1;
                 numericUpDowns[index].Value = trackBars[index].Value;
                 values[index] = (int)numericUpDowns[index].Value;
                 numericUpDowns[index + 3].Value = temp[index]; // duplicate code // add three to account for the rgb numericUpDown controls
             }
             else if (sender is NumericUpDown numericUpDown)
             {
-                LocateIndex(numericUpDown, NumericUpDownIndexOffset);
-                if(index > 2)
+                //LocateIndex(numericUpDown, NumericUpDownIndexOffset);
+                index = int.Parse(numericUpDown.Name.Substring(TrackBarIndexOffset)) - 1;
+                if (index > 2)
                 {
                     int temp = (int)(((float)numericUpDowns[index].Value / 255.0f) * range);
                     index -= 3; // remove three from the index when the index is greater than two to account for the rgb numericUpDown controls
@@ -63,14 +65,17 @@ namespace HexColourSlider
 
             component = (float)values[index] / range;
             textboxes[index].Text = component.ToString();
-            uintValue = return_uint(component);
-            hexString = return_string(uintValue);
-            hexboxes[index].Text = prepare_string(hexString);
+            //uintValue = return_uint(component);
+            //hexString = return_string(uintValue);
+            //hexboxes[index].Text = prepare_string(hexString);
+            uintValue = BitConverter.ToUInt32(BitConverter.GetBytes(component), 0);
+            hexString = uintValue.ToString("X8");
+            hexboxes[index].Text = hexString.Insert(2, " ").Insert(5, " ").Insert(8, " ");
 
             inProgress = false;
         }
-        private static uint return_uint(float value) { return BitConverter.ToUInt32(BitConverter.GetBytes(value), 0); }
-        private static string return_string(uint uintValue) { return uintValue.ToString("X8"); }
-        private static string prepare_string(string hexString) { return hexString.Insert(2, " ").Insert(5, " ").Insert(8, " "); }
+        //private static uint return_uint(float value) { return BitConverter.ToUInt32(BitConverter.GetBytes(value), 0); }
+        //private static string return_string(uint uintValue) { return uintValue.ToString("X8"); }
+        //private static string prepare_string(string hexString) { return hexString.Insert(2, " ").Insert(5, " ").Insert(8, " "); }
     }
 }
