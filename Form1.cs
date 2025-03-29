@@ -49,7 +49,7 @@ namespace HexColourSlider
                     index -= 3;
                     int temp = (int)(((float)numericUpDowns[index + 3].Value / 255.0f) * range);
                     trackBars[index].Value = temp;
-                    numericUpDowns[index].Value = temp;
+                    numericUpDowns[index].Value = temp; // reason for duplicate code
                 }
                 else
                 {
