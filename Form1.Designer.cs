@@ -175,6 +175,7 @@
             textBox4.ReadOnly = true;
             textBox4.Size = new Size(125, 23);
             textBox4.TabIndex = 14;
+            textBox4.Text = "00 00 00 00";
             // 
             // textBox5
             // 
@@ -246,6 +247,7 @@
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(80, 23);
             textBox1.TabIndex = 22;
+            textBox1.Text = "0";
             // 
             // textBox2
             // 

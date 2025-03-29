@@ -9,11 +9,7 @@ namespace HexColourSlider
         private const int NumericUpDownIndexOffset = 13;
         private int[] temp = new int[3]; // temporary values for RGB numericUpDowns 4, 5 & 6
         private bool inProgress;
-        public Form1()
-        {
-            InitializeComponent();
-            calculate(this, EventArgs.Empty);
-        }
+        public Form1() { InitializeComponent(); }
         private void LocateIndex(Control Type, int IndexOffset) { index = int.Parse(Type.Name.Substring(IndexOffset)) - 1; }
         private void calculate(object sender, EventArgs e)
         {
@@ -61,10 +57,13 @@ namespace HexColourSlider
             //2147483647
             //10000000
 
+            // update all three always
             pictureBox1.BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
+            // find a way to only update the relevant PictureBox?
             pictureBox2.BackColor = Color.FromArgb(temp[0], 0, 0);
             pictureBox3.BackColor = Color.FromArgb(0, temp[1], 0);
             pictureBox4.BackColor = Color.FromArgb(0, 0, temp[2]);
+            //
 
             TextBox[] textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
             TextBox[] hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
