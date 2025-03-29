@@ -2,13 +2,13 @@ namespace HexColourSlider
 {
     public partial class Form1 : Form
     {
-        private int[] values = new int[3];
-        private int index;
+        private int[] values = new int[3]; // RGB values in the full range 1-10000000
+        private int index; // index of the control
         private const float range = 10000000.0f; //4294967295 //2147483647
         private const int TrackBarIndexOffset = 8;
         private const int NumericUpDownIndexOffset = 13;
         private int[] temp = new int[3]; // temporary values for RGB numericUpDowns 4, 5 & 6
-        private bool inProgress;
+        private bool inProgress; // is calculation in progress
         private TrackBar[] trackBars;
         private NumericUpDown[] numericUpDowns;
         private PictureBox[] pictureBoxes;
@@ -16,7 +16,7 @@ namespace HexColourSlider
         private TextBox[] hexboxes;
         private float component;
         private uint uintValue;
-        private string hexString = String.Empty;
+        private string hexString = String.Empty; // value represented as a hexadecimal string float 32 value
         public Form1()
         {
             InitializeComponent();
