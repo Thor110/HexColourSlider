@@ -9,15 +9,32 @@ namespace HexColourSlider
         private const int NumericUpDownIndexOffset = 13;
         private int[] temp = new int[3]; // temporary values for RGB numericUpDowns 4, 5 & 6
         private bool inProgress;
-        public Form1() { InitializeComponent(); }
+        TrackBar[] trackBars;
+        NumericUpDown[] numericUpDowns;
+        PictureBox[] pictureBoxes;
+        TextBox[] textboxes;
+        TextBox[] hexboxes;
+        float component;
+        uint uintValue;
+        string hexString = String.Empty;
+        public Form1()
+        {
+            InitializeComponent();
+            trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
+            numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
+            pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
+            hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
+        }
         private void LocateIndex(Control Type, int IndexOffset) { index = int.Parse(Type.Name.Substring(IndexOffset)) - 1; }
         private void calculate(object sender, EventArgs e)
         {
             if (inProgress) return;
             inProgress = true;
 
-            TrackBar[] trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
-            NumericUpDown[] numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
+            //Arrays Promoted!!!
+            //TrackBar[] trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
+            //NumericUpDown[] numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
 
             temp[index] = (int)((values[index] / range) * 255);
 
@@ -57,17 +74,17 @@ namespace HexColourSlider
             //2147483647
             //10000000
 
-            PictureBox[] pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            //PictureBox[] pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
             pictureBoxes[index + 1].BackColor = Color.FromArgb((index == 0) ? temp[0] : 0, (index == 1) ? temp[1] : 0, (index == 2) ? temp[2] : 0);
             pictureBoxes[0].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
 
-            TextBox[] textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
-            TextBox[] hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
+            //TextBox[] textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
+            //TextBox[] hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
 
-            float component = (float)values[index] / range;
+            component = (float)values[index] / range;
             textboxes[index].Text = component.ToString();
-            uint uintValue = return_uint(component);
-            string hexString = return_string(uintValue);
+            uintValue = return_uint(component);
+            hexString = return_string(uintValue);
             hexboxes[index].Text = prepare_string(hexString);
 
             inProgress = false;
