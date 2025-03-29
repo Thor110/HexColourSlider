@@ -22,7 +22,7 @@ namespace HexColourSlider
             InitializeComponent();
             trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
             numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
-            pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            pictureBoxes = new PictureBox[] { pictureBox2, pictureBox3, pictureBox4, pictureBox1 };
             textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
             hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
         }
@@ -39,15 +39,15 @@ namespace HexColourSlider
                 LocateIndex(trackBar, TrackBarIndexOffset);
                 numericUpDowns[index].Value = trackBars[index].Value;
                 values[index] = (int)numericUpDowns[index].Value;
-                numericUpDowns[index + 3].Value = temp[index]; // duplicate code
+                numericUpDowns[index + 3].Value = temp[index]; // duplicate code // add three to account for the rgb numericUpDown controls
             }
             else if (sender is NumericUpDown numericUpDown)
             {
                 LocateIndex(numericUpDown, NumericUpDownIndexOffset);
                 if(index > 2)
                 {
-                    index -= 3;
-                    int temp = (int)(((float)numericUpDowns[index + 3].Value / 255.0f) * range);
+                    int temp = (int)(((float)numericUpDowns[index].Value / 255.0f) * range);
+                    index -= 3; // remove three from the index when the index is greater than two to account for the rgb numericUpDown controls
                     trackBars[index].Value = temp;
                     numericUpDowns[index].Value = temp; // reason for duplicate code
                 }
@@ -55,11 +55,11 @@ namespace HexColourSlider
                 {
                     trackBars[index].Value = (int)numericUpDowns[index].Value;
                     values[index] = (int)trackBars[index].Value;
-                    numericUpDowns[index + 3].Value = temp[index]; // duplicate code
+                    numericUpDowns[index + 3].Value = temp[index]; // duplicate code // add three to account for the rgb numericUpDown controls
                 }
             }
-            pictureBoxes[index + 1].BackColor = Color.FromArgb((index == 0) ? temp[0] : 0, (index == 1) ? temp[1] : 0, (index == 2) ? temp[2] : 0);
-            pictureBoxes[0].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
+            pictureBoxes[index].BackColor = Color.FromArgb((index == 0) ? temp[0] : 0, (index == 1) ? temp[1] : 0, (index == 2) ? temp[2] : 0);
+            pictureBoxes[3].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
 
             component = (float)values[index] / range;
             textboxes[index].Text = component.ToString();
