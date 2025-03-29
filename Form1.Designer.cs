@@ -107,6 +107,7 @@
             pictureBox1.Size = new Size(401, 50);
             pictureBox1.TabIndex = 6;
             pictureBox1.TabStop = false;
+            pictureBox1.BackColor = Color.Black;
             // 
             // label1
             // 
@@ -142,6 +143,7 @@
             pictureBox2.Size = new Size(50, 50);
             pictureBox2.TabIndex = 10;
             pictureBox2.TabStop = false;
+            pictureBox2.BackColor = Color.Black;
             // 
             // pictureBox3
             // 
@@ -150,6 +152,7 @@
             pictureBox3.Size = new Size(50, 50);
             pictureBox3.TabIndex = 11;
             pictureBox3.TabStop = false;
+            pictureBox3.BackColor = Color.Black;
             // 
             // pictureBox4
             // 
@@ -158,6 +161,7 @@
             pictureBox4.Size = new Size(50, 50);
             pictureBox4.TabIndex = 12;
             pictureBox4.TabStop = false;
+            pictureBox4.BackColor = Color.Black;
             // 
             // label4
             // 

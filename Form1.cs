@@ -57,13 +57,9 @@ namespace HexColourSlider
             //2147483647
             //10000000
 
-            // update all three always
-            pictureBox1.BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
-            // find a way to only update the relevant PictureBox?
-            pictureBox2.BackColor = Color.FromArgb(temp[0], 0, 0);
-            pictureBox3.BackColor = Color.FromArgb(0, temp[1], 0);
-            pictureBox4.BackColor = Color.FromArgb(0, 0, temp[2]);
-            //
+            PictureBox[] pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            pictureBoxes[index + 1].BackColor = Color.FromArgb((index == 0) ? temp[0] : 0, (index == 1) ? temp[1] : 0, (index == 2) ? temp[2] : 0);
+            pictureBoxes[0].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
 
             TextBox[] textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
             TextBox[] hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
