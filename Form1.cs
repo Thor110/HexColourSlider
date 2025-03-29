@@ -45,7 +45,7 @@ namespace HexColourSlider
             else if (sender is NumericUpDown numericUpDown)
             {
                 //LocateIndex(numericUpDown, NumericUpDownIndexOffset);
-                index = int.Parse(numericUpDown.Name.Substring(TrackBarIndexOffset)) - 1;
+                index = int.Parse(numericUpDown.Name.Substring(NumericUpDownIndexOffset)) - 1;
                 if (index > 2)
                 {
                     int temp = (int)(((float)numericUpDowns[index].Value / 255.0f) * range);
