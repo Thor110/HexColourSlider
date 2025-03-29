@@ -12,7 +12,7 @@ namespace HexColourSlider
         private TrackBar[] trackBars;
         private NumericUpDown[] numericUpDowns;
         private PictureBox[] pictureBoxes;
-        private TextBox[] textboxes;
+        private TextBox[] floatboxes;
         private TextBox[] hexboxes;
         private float component;
         private uint uintValue;
@@ -23,7 +23,7 @@ namespace HexColourSlider
             trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
             numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
             pictureBoxes = new PictureBox[] { pictureBox2, pictureBox3, pictureBox4, pictureBox1 };
-            textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
+            floatboxes = new TextBox[] { textBox1, textBox2, textBox3 };
             hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
         }
         //private void LocateIndex(Control Type, int IndexOffset) { index = int.Parse(Type.Name.Substring(IndexOffset)) - 1; }
@@ -64,7 +64,7 @@ namespace HexColourSlider
             pictureBoxes[3].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
 
             component = (float)values[index] / range;
-            textboxes[index].Text = component.ToString();
+            floatboxes[index].Text = component.ToString();
             //uintValue = return_uint(component);
             //hexString = return_string(uintValue);
             //hexboxes[index].Text = prepare_string(hexString);
