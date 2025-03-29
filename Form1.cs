@@ -9,14 +9,14 @@ namespace HexColourSlider
         private const int NumericUpDownIndexOffset = 13;
         private int[] temp = new int[3]; // temporary values for RGB numericUpDowns 4, 5 & 6
         private bool inProgress;
-        TrackBar[] trackBars;
-        NumericUpDown[] numericUpDowns;
-        PictureBox[] pictureBoxes;
-        TextBox[] textboxes;
-        TextBox[] hexboxes;
-        float component;
-        uint uintValue;
-        string hexString = String.Empty;
+        private TrackBar[] trackBars;
+        private NumericUpDown[] numericUpDowns;
+        private PictureBox[] pictureBoxes;
+        private TextBox[] textboxes;
+        private TextBox[] hexboxes;
+        private float component;
+        private uint uintValue;
+        private string hexString = String.Empty;
         public Form1()
         {
             InitializeComponent();
@@ -32,10 +32,6 @@ namespace HexColourSlider
             if (inProgress) return;
             inProgress = true;
 
-            //Arrays Promoted!!!
-            //TrackBar[] trackBars = new TrackBar[] { trackBar1, trackBar2, trackBar3 };
-            //NumericUpDown[] numericUpDowns = new NumericUpDown[] { numericUpDown1, numericUpDown2, numericUpDown3, numericUpDown4, numericUpDown5, numericUpDown6 };
-
             temp[index] = (int)((values[index] / range) * 255);
 
             if (sender is TrackBar trackBar)
@@ -44,7 +40,6 @@ namespace HexColourSlider
                 numericUpDowns[index].Value = trackBars[index].Value;
                 values[index] = (int)numericUpDowns[index].Value;
                 numericUpDowns[index + 3].Value = temp[index]; // duplicate code
-                //GetValueFrom(numericUpDowns, trackBars);
             }
             else if (sender is NumericUpDown numericUpDown)
             {
@@ -62,24 +57,9 @@ namespace HexColourSlider
                     values[index] = (int)trackBars[index].Value;
                     numericUpDowns[index + 3].Value = temp[index]; // duplicate code
                 }
-                //GetValueFrom(trackBars, numericUpDowns);
-            }/*
-            void GetValueFrom(Control[] TargetControl, Control[] SourceControl)
-            {
-                dynamic giveValueTo = TargetControl[index];
-                dynamic getValueFrom = SourceControl[index];
-                giveValueTo.Value = (int)getValueFrom.Value;
-                values[index] = (int)giveValueTo.Value;
-            }*/
-            //2147483647
-            //10000000
-
-            //PictureBox[] pictureBoxes = new PictureBox[] { pictureBox1, pictureBox2, pictureBox3, pictureBox4 };
+            }
             pictureBoxes[index + 1].BackColor = Color.FromArgb((index == 0) ? temp[0] : 0, (index == 1) ? temp[1] : 0, (index == 2) ? temp[2] : 0);
             pictureBoxes[0].BackColor = Color.FromArgb(temp[0], temp[1], temp[2]);
-
-            //TextBox[] textboxes = new TextBox[] { textBox1, textBox2, textBox3 };
-            //TextBox[] hexboxes = new TextBox[] { textBox4, textBox5, textBox6 };
 
             component = (float)values[index] / range;
             textboxes[index].Text = component.ToString();
