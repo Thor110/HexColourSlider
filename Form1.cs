@@ -10,7 +10,7 @@ namespace HexColourSlider
         private const int TrackBarIndexOffset = 8;
         private const int NumericUpDownIndexOffset = 13;
         private int[] RGB = new int[3]; // store values for RGB numericUpDowns 4, 5 & 6
-        private bool inProgress; // is calculation in progress
+        private bool inProgress; // is a calculation in progress
         private TrackBar[] trackBars;
         private NumericUpDown[] numericUpDowns;
         private PictureBox[] pictureBoxes;
@@ -29,7 +29,7 @@ namespace HexColourSlider
         }
         private void calculate(object sender, EventArgs e)
         {
-            if (inProgress) return;
+            if (inProgress) return; // prevents the event from being called recursively
             inProgress = true;
 
             if (sender is TrackBar trackBar)
