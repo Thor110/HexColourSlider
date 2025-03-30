@@ -34,8 +34,8 @@ namespace HexColourSlider
             if (sender is TrackBar trackBar)
             {
                 index = int.Parse(trackBar.Name.Substring(TrackBarIndexOffset)) - 1;
-                numericUpDowns[index].Value = trackBars[index].Value;
-                value = (int)numericUpDowns[index].Value;
+                value = trackBar.Value;
+                numericUpDowns[index].Value = value;
                 numericUpDowns[index + 3].Value = (int)((value / range) * 255); // duplicate code // add three to account for the rgb numericUpDown controls
             }
             else if (sender is NumericUpDown numericUpDown)
@@ -43,15 +43,15 @@ namespace HexColourSlider
                 index = int.Parse(numericUpDown.Name.Substring(NumericUpDownIndexOffset)) - 1;
                 if (index > 2)
                 {
-                    value = (int)(((float)numericUpDowns[index].Value / 255.0f) * range); // get from rgb numerics
+                    value = (int)(((float)numericUpDown.Value / 255.0f) * range);
                     index -= 3; // remove three from the index when the index is greater than two to account for the rgb numericUpDown controls
                     trackBars[index].Value = value;
                     numericUpDowns[index].Value = value; // reason for duplicate code
                 }
                 else
                 {
-                    trackBars[index].Value = (int)numericUpDowns[index].Value;
-                    value = (int)trackBars[index].Value;
+                    value = (int)numericUpDown.Value;
+                    trackBars[index].Value = value;
                     numericUpDowns[index + 3].Value = (int)((value / range) * 255); // duplicate code // add three to account for the rgb numericUpDown controls
                 }
             }
