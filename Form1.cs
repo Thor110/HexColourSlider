@@ -16,8 +16,6 @@ namespace HexColourSlider
         private PictureBox[] pictureBoxes;
         private TextBox[] floatboxes;
         private TextBox[] hexboxes;
-        private uint uintValue;
-        private string hexString = String.Empty; // value represented as a hexadecimal string float 32 value
         public Form1()
         {
             InitializeComponent();
@@ -73,9 +71,8 @@ namespace HexColourSlider
             pictureBoxes[3].BackColor = Color.FromArgb(RGB[0], RGB[1], RGB[2]);
 
             floatboxes[index].Text = basic.ToString();
-            uintValue = BitConverter.ToUInt32(BitConverter.GetBytes(basic), 0);
-            hexString = uintValue.ToString("X8");
-            hexboxes[index].Text = hexString.Insert(2, " ").Insert(5, " ").Insert(8, " ");
+
+            hexboxes[index].Text = BitConverter.ToUInt32(BitConverter.GetBytes(basic), 0).ToString("X8").Insert(2, " ").Insert(5, " ").Insert(8, " ");
 
             inProgress = false;
         }
