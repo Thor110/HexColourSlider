@@ -30,14 +30,19 @@ namespace HexColourSlider
             if (inProgress) return; // prevents the event from being called recursively
             inProgress = true;
 
+            // making use of the event handlers calling each other
+            // specifically the numericUpDown Value Changed Event Handler which calls this method.
+            basic = (float)value / range; // duplication of code
+            ratio = (int)(basic * 255); // duplication of code
+
             if (sender is TrackBar trackBar)
             {
                 index = int.Parse(trackBar.Name.Substring(TrackBarIndexOffset));
                 value = trackBar.Value;
                 numericUpDowns[index].Value = value;
 
-                basic = (float)value / range; // duplication of code
-                ratio = (int)(basic * 255); // duplication of code
+                //basic = (float)value / range; // duplication of code
+                //ratio = (int)(basic * 255); // duplication of code
 
                 numericUpDowns[index + 3].Value = ratio; // duplicate code // add three to account for the rgb numericUpDown controls
             }
@@ -51,16 +56,16 @@ namespace HexColourSlider
                     trackBars[index].Value = value;
                     numericUpDowns[index].Value = value; // reason for duplicate code
 
-                    basic = (float)value / range; // duplication of code
-                    ratio = (int)(basic * 255); // duplication of code
+                    //basic = (float)value / range; // duplication of code
+                    //ratio = (int)(basic * 255); // duplication of code
                 }
                 else
                 {
                     value = (int)numericUpDown.Value;
                     trackBars[index].Value = value;
 
-                    basic = (float)value / range; // duplication of code
-                    ratio = (int)(basic * 255); // duplication of code
+                    //basic = (float)value / range; // duplication of code
+                    //ratio = (int)(basic * 255); // duplication of code
 
                     numericUpDowns[index + 3].Value = ratio; // duplicate code // add three to account for the rgb numericUpDown controls
                 }
