@@ -7,8 +7,8 @@ namespace HexColourSlider
         private int ratio; // ratio of value to range times 255
         private float basic; // basic ratio of value to range
         private const float range = 10000000.0f; //4294967295 //2147483647
-        private const int TrackBarIndexOffset = 8;
-        private const int NumericUpDownIndexOffset = 13;
+        private const int TrackBarIndexOffset = 8; // offset of the index in the object name
+        private const int NumericUpDownIndexOffset = 13; // offset of the index in the object name
         private int[] RGB = new int[3]; // store values for RGB numericUpDowns 4, 5 & 6 and to update the colour in pictureBox3
         private TrackBar[] trackBars;
         private NumericUpDown[] numericUpDowns;
@@ -30,8 +30,8 @@ namespace HexColourSlider
             {
                 index = int.Parse(trackBar.Name.Substring(TrackBarIndexOffset));
                 value = trackBar.Value;
-                basic = (float)value / range; // making use of the event handlers calling each other
-                ratio = (int)(basic * 255); // specifically the numericUpDown Value Changed Event Handler which calls this method.
+                basic = (float)value / range; // code duplication
+                ratio = (int)(basic * 255); // code duplication
                 numericUpDowns[index].Text = value.ToString();
                 numericUpDowns[index + 3].Text = ratio.ToString(); // duplicate code // add three to account for the rgb numericUpDown controls
             }
@@ -41,17 +41,17 @@ namespace HexColourSlider
                 if (index > 2)
                 {
                     value = (int)(((float)numericUpDown.Value / 255.0f) * range);
-                    basic = (float)value / range; // making use of the event handlers calling each other
-                    ratio = (int)(basic * 255); // specifically the numericUpDown Value Changed Event Handler which calls this method.
+                    basic = (float)value / range; // code duplication
+                    ratio = (int)(basic * 255); // code duplication
                     index -= 3; // remove three from the index when the index is greater than two to account for the rgb numericUpDown controls
                     trackBars[index].Value = value;
-                    numericUpDowns[index].Text = value.ToString(); // reason for duplicate code
+                    numericUpDowns[index].Text = value.ToString(); // reason for duplicate code is having two sets of numericUpDown controls
                 }
                 else
                 {
                     value = (int)numericUpDown.Value;
-                    basic = (float)value / range; // making use of the event handlers calling each other
-                    ratio = (int)(basic * 255); // specifically the numericUpDown Value Changed Event Handler which calls this method.
+                    basic = (float)value / range; // code duplication
+                    ratio = (int)(basic * 255); // code duplication
                     trackBars[index].Value = value;
                     numericUpDowns[index + 3].Text = ratio.ToString(); // duplicate code // add three to account for the rgb numericUpDown controls
                 }
