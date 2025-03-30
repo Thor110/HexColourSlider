@@ -9,7 +9,7 @@ namespace HexColourSlider
         private int index; // index of the control
         private int ratio; // ratio of value to range times 255
         private float basic; // basic ratio of value to range
-        private const float range = 2147483647.0f; //4294967295 //2147483647
+        private const float range = 2147483647.0f; //4294967295 //2147483647 = maximum integer value
         private const int TrackBarIndexOffset = 8; // offset of the index in the object name
         private const int NumericUpDownIndexOffset = 13; // offset of the index in the object name
         private int[] RGB = new int[3]; // store values for RGB numericUpDowns 4, 5 & 6 and to update the colour in pictureBox3
