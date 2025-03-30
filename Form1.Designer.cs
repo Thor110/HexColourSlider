@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             trackBar0 = new TrackBar();
             trackBar1 = new TrackBar();
             trackBar2 = new TrackBar();
@@ -348,6 +349,7 @@
             Controls.Add(trackBar2);
             Controls.Add(trackBar1);
             Controls.Add(trackBar0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
             Text = "Colour Code Previewer";
             ((System.ComponentModel.ISupportInitialize)trackBar0).EndInit();
