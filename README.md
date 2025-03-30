@@ -1,5 +1,7 @@
 # Hex Colour Slider
 
+NOTE / WARNING : Visual Studio Designer View seems to crash when trying to view this program in designer view.
+
 I made this program to determine float32 values as hexadecimal in order to identify values that are needed for changing the colours of gui elements when hexediting the executable for Star Wars Knights of the Old Republic II : The Sith Lords
 
 As outlined in my tutorial here : https://deadlystream.com/topic/6886-tutorial-kotor-modding-tutorial-series/

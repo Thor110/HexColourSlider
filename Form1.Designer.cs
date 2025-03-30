@@ -56,6 +56,7 @@
             numericUpDown3 = new NumericUpDown();
             numericUpDown4 = new NumericUpDown();
             numericUpDown5 = new NumericUpDown();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)trackBar0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
@@ -75,7 +76,7 @@
             // 
             trackBar0.LargeChange = 1;
             trackBar0.Location = new Point(61, 70);
-            trackBar0.Maximum = 10000000;
+            trackBar0.Maximum = 2147483647;
             trackBar0.Name = "trackBar0";
             trackBar0.Size = new Size(401, 45);
             trackBar0.TabIndex = 3;
@@ -85,7 +86,7 @@
             // 
             trackBar1.LargeChange = 1;
             trackBar1.Location = new Point(61, 155);
-            trackBar1.Maximum = 10000000;
+            trackBar1.Maximum = 2147483647;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(401, 45);
             trackBar1.TabIndex = 4;
@@ -95,7 +96,7 @@
             // 
             trackBar2.LargeChange = 1;
             trackBar2.Location = new Point(61, 242);
-            trackBar2.Maximum = 10000000;
+            trackBar2.Maximum = 2147483647;
             trackBar2.Name = "trackBar2";
             trackBar2.Size = new Size(401, 45);
             trackBar2.TabIndex = 5;
@@ -175,7 +176,7 @@
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(138, 41);
+            textBox3.Location = new Point(148, 41);
             textBox3.Name = "textBox3";
             textBox3.ReadOnly = true;
             textBox3.Size = new Size(125, 23);
@@ -184,7 +185,7 @@
             // 
             // textBox4
             // 
-            textBox4.Location = new Point(138, 126);
+            textBox4.Location = new Point(148, 126);
             textBox4.Name = "textBox4";
             textBox4.ReadOnly = true;
             textBox4.Size = new Size(125, 23);
@@ -193,7 +194,7 @@
             // 
             // textBox5
             // 
-            textBox5.Location = new Point(138, 213);
+            textBox5.Location = new Point(148, 213);
             textBox5.Name = "textBox5";
             textBox5.ReadOnly = true;
             textBox5.Size = new Size(125, 23);
@@ -212,27 +213,27 @@
             // numericUpDown0
             // 
             numericUpDown0.Location = new Point(61, 41);
-            numericUpDown0.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numericUpDown0.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
             numericUpDown0.Name = "numericUpDown0";
-            numericUpDown0.Size = new Size(71, 23);
+            numericUpDown0.Size = new Size(81, 23);
             numericUpDown0.TabIndex = 18;
             numericUpDown0.ValueChanged += calculate;
             // 
             // numericUpDown1
             // 
             numericUpDown1.Location = new Point(61, 126);
-            numericUpDown1.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numericUpDown1.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(71, 23);
+            numericUpDown1.Size = new Size(81, 23);
             numericUpDown1.TabIndex = 19;
             numericUpDown1.ValueChanged += calculate;
             // 
             // numericUpDown2
             // 
             numericUpDown2.Location = new Point(61, 213);
-            numericUpDown2.Maximum = new decimal(new int[] { 10000000, 0, 0, 0 });
+            numericUpDown2.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
-            numericUpDown2.Size = new Size(71, 23);
+            numericUpDown2.Size = new Size(81, 23);
             numericUpDown2.TabIndex = 20;
             numericUpDown2.ValueChanged += calculate;
             // 
@@ -247,7 +248,7 @@
             // 
             // textBox0
             // 
-            textBox0.Location = new Point(269, 41);
+            textBox0.Location = new Point(279, 41);
             textBox0.Name = "textBox0";
             textBox0.ReadOnly = true;
             textBox0.Size = new Size(80, 23);
@@ -256,7 +257,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(269, 126);
+            textBox1.Location = new Point(279, 126);
             textBox1.Name = "textBox1";
             textBox1.ReadOnly = true;
             textBox1.Size = new Size(80, 23);
@@ -265,7 +266,7 @@
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(269, 213);
+            textBox2.Location = new Point(279, 213);
             textBox2.Name = "textBox2";
             textBox2.ReadOnly = true;
             textBox2.Size = new Size(80, 23);
@@ -292,7 +293,7 @@
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(355, 41);
+            numericUpDown3.Location = new Point(365, 41);
             numericUpDown3.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(62, 23);
@@ -301,7 +302,7 @@
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(355, 126);
+            numericUpDown4.Location = new Point(365, 126);
             numericUpDown4.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(62, 23);
@@ -310,18 +311,29 @@
             // 
             // numericUpDown5
             // 
-            numericUpDown5.Location = new Point(355, 214);
+            numericUpDown5.Location = new Point(365, 214);
             numericUpDown5.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(62, 23);
             numericUpDown5.TabIndex = 29;
             numericUpDown5.ValueChanged += calculate;
             // 
+            // button1
+            // 
+            button1.Location = new Point(443, 12);
+            button1.Name = "button1";
+            button1.Size = new Size(75, 23);
+            button1.TabIndex = 30;
+            button1.Text = "R3D Finder";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += R3D_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(535, 357);
+            Controls.Add(button1);
             Controls.Add(numericUpDown5);
             Controls.Add(numericUpDown4);
             Controls.Add(numericUpDown3);
@@ -397,5 +409,6 @@
         private NumericUpDown numericUpDown3;
         private NumericUpDown numericUpDown4;
         private NumericUpDown numericUpDown5;
+        private Button button1;
     }
 }
