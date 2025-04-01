@@ -75,7 +75,7 @@ namespace HexColourSlider
             basic = (float)value / range;
             ratio = (int)(basic * 255);
         }
-        private void R3D_Click(object sender, EventArgs e)
+        private void R3D_Click()
         {
             int maximum = 2147483647;
             for (int current = (int)numericUpDown0.Value; current <= maximum; current++)
@@ -100,10 +100,7 @@ namespace HexColourSlider
                 MessageBox.Show("Executable file not found, please place this program inside the game folder next to the swkotor2.exe file.");
                 return;
             }
-            if(!File.Exists("Miles/Mssa3d.m3d"))
-            {
-                R3D_Click(sender, e); // update red value to one that ends in the bytes 3D to prevent breaking the camera on Aspyr versions of the game.
-            }
+            R3D_Click(); // update red value to one that ends in the bytes 3D to prevent breaking the camera on Aspyr versions of the game.
             if (radioButton1.Checked) // dialog colour
             {
                 DialogChanges();

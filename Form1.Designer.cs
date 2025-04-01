@@ -56,7 +56,6 @@
             numericUpDown3 = new NumericUpDown();
             numericUpDown4 = new NumericUpDown();
             numericUpDown5 = new NumericUpDown();
-            button1 = new Button();
             button2 = new Button();
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
@@ -324,16 +323,6 @@
             numericUpDown5.TabIndex = 29;
             numericUpDown5.ValueChanged += calculate;
             // 
-            // button1
-            // 
-            button1.Location = new Point(443, 12);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 30;
-            button1.Text = "R3D Finder";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += R3D_Click;
-            // 
             // button2
             // 
             button2.Location = new Point(443, 377);
@@ -400,7 +389,6 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(535, 420);
-            Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(radioButton1);
             Controls.Add(radioButton2);
@@ -482,7 +470,6 @@
         private NumericUpDown numericUpDown3;
         private NumericUpDown numericUpDown4;
         private NumericUpDown numericUpDown5;
-        private Button button1;
         private Button button2;
         private RadioButton radioButton1;
         private RadioButton radioButton2;
