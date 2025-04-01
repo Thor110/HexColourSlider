@@ -57,6 +57,12 @@
             numericUpDown4 = new NumericUpDown();
             numericUpDown5 = new NumericUpDown();
             button1 = new Button();
+            button2 = new Button();
+            radioButton1 = new RadioButton();
+            radioButton2 = new RadioButton();
+            radioButton3 = new RadioButton();
+            radioButton4 = new RadioButton();
+            radioButton5 = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)trackBar0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
@@ -328,12 +334,79 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += R3D_Click;
             // 
+            // button2
+            // 
+            button2.Location = new Point(443, 377);
+            button2.Name = "button2";
+            button2.Size = new Size(75, 23);
+            button2.TabIndex = 30;
+            button2.Text = "Patch";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += patch_Click;
+            // 
+            // radioButton1
+            // 
+            radioButton1.AutoSize = true;
+            radioButton1.Location = new Point(10, 355);
+            radioButton1.Name = "radioButton1";
+            radioButton1.Size = new Size(75, 19);
+            radioButton1.TabIndex = 31;
+            radioButton1.Text = "Dialog Text";
+            radioButton1.UseVisualStyleBackColor = true;
+            radioButton1.Checked = true;
+            // 
+            // radioButton2
+            // 
+            radioButton2.AutoSize = true;
+            radioButton2.Location = new Point(95, 355);
+            radioButton2.Name = "radioButton2";
+            radioButton2.Size = new Size(75, 19);
+            radioButton2.TabIndex = 31;
+            radioButton2.Text = "Button Border";
+            radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            radioButton3.AutoSize = true;
+            radioButton3.Location = new Point(195, 355);
+            radioButton3.Name = "radioButton3";
+            radioButton3.Size = new Size(75, 19);
+            radioButton3.TabIndex = 31;
+            radioButton3.Text = "Status Effects";
+            radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            radioButton4.AutoSize = true;
+            radioButton4.Location = new Point(290, 355);
+            radioButton4.Name = "radioButton4";
+            radioButton4.Size = new Size(75, 19);
+            radioButton4.TabIndex = 31;
+            radioButton4.Text = "Text Highlight";
+            radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            radioButton5.AutoSize = true;
+            radioButton5.Location = new Point(390, 355);
+            radioButton5.Name = "radioButton5";
+            radioButton5.Size = new Size(75, 19);
+            radioButton5.TabIndex = 31;
+            radioButton5.Text = "Patch All";
+            radioButton5.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 357);
+            ClientSize = new Size(535, 410);
             Controls.Add(button1);
+            Controls.Add(button2);
+            Controls.Add(radioButton1);
+            Controls.Add(radioButton2);
+            Controls.Add(radioButton3);
+            Controls.Add(radioButton4);
+            Controls.Add(radioButton5);
             Controls.Add(numericUpDown5);
             Controls.Add(numericUpDown4);
             Controls.Add(numericUpDown3);
@@ -410,5 +483,11 @@
         private NumericUpDown numericUpDown4;
         private NumericUpDown numericUpDown5;
         private Button button1;
+        private Button button2;
+        private RadioButton radioButton1;
+        private RadioButton radioButton2;
+        private RadioButton radioButton3;
+        private RadioButton radioButton4;
+        private RadioButton radioButton5;
     }
 }
