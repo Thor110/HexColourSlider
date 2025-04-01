@@ -33,7 +33,10 @@ namespace HexColourSlider
                 MessageBox.Show("If using any of the following versions of the game : Disc or LegacyPC (Steam). Please be sure to use the editable executable!");
                 Process.Start(new ProcessStartInfo("https://deadlystream.com/files/file/1321-kotor-2-editable-executable/") { UseShellExecute = true });
             }
-            MessageBox.Show("Do not use the maximum or minimum values...");
+            // some hard coded updates to the form controls to limit the range of the colour values to ~0.1 - ~0.9 and force a value update call.
+            numericUpDown3.Minimum = 1;
+            numericUpDown4.Minimum = 1;
+            numericUpDown5.Minimum = 1;
         }
         private void calculate(object sender, EventArgs e)
         {

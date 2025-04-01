@@ -81,7 +81,8 @@
             // 
             trackBar0.LargeChange = 1;
             trackBar0.Location = new Point(61, 70);
-            trackBar0.Maximum = 2147483647;
+            trackBar0.Maximum = 2139062144;
+            trackBar0.Minimum = 8421505;
             trackBar0.Name = "trackBar0";
             trackBar0.Size = new Size(401, 45);
             trackBar0.TabIndex = 3;
@@ -91,7 +92,8 @@
             // 
             trackBar1.LargeChange = 1;
             trackBar1.Location = new Point(61, 155);
-            trackBar1.Maximum = 2147483647;
+            trackBar1.Maximum = 2139062144;
+            trackBar1.Minimum = 8421505;
             trackBar1.Name = "trackBar1";
             trackBar1.Size = new Size(401, 45);
             trackBar1.TabIndex = 4;
@@ -101,7 +103,8 @@
             // 
             trackBar2.LargeChange = 1;
             trackBar2.Location = new Point(61, 242);
-            trackBar2.Maximum = 2147483647;
+            trackBar2.Maximum = 2139062144;
+            trackBar2.Minimum = 8421505;
             trackBar2.Name = "trackBar2";
             trackBar2.Size = new Size(401, 45);
             trackBar2.TabIndex = 5;
@@ -218,7 +221,8 @@
             // numericUpDown0
             // 
             numericUpDown0.Location = new Point(61, 41);
-            numericUpDown0.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
+            numericUpDown0.Minimum = 8421505;
+            numericUpDown0.Maximum = 2139062144;
             numericUpDown0.Name = "numericUpDown0";
             numericUpDown0.Size = new Size(81, 23);
             numericUpDown0.TabIndex = 18;
@@ -227,7 +231,8 @@
             // numericUpDown1
             // 
             numericUpDown1.Location = new Point(61, 126);
-            numericUpDown1.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
+            numericUpDown1.Maximum = 2139062144;
+            numericUpDown1.Minimum = 8421505;
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(81, 23);
             numericUpDown1.TabIndex = 19;
@@ -236,7 +241,8 @@
             // numericUpDown2
             // 
             numericUpDown2.Location = new Point(61, 213);
-            numericUpDown2.Maximum = new decimal(new int[] { 2147483647, 0, 0, 0 });
+            numericUpDown2.Minimum = 8421505;
+            numericUpDown2.Maximum = 2139062144;
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(81, 23);
             numericUpDown2.TabIndex = 20;
@@ -299,7 +305,7 @@
             // numericUpDown3
             // 
             numericUpDown3.Location = new Point(365, 41);
-            numericUpDown3.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numericUpDown3.Maximum = 254;
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(62, 23);
             numericUpDown3.TabIndex = 27;
@@ -308,7 +314,7 @@
             // numericUpDown4
             // 
             numericUpDown4.Location = new Point(365, 126);
-            numericUpDown4.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numericUpDown4.Maximum = 254;
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(62, 23);
             numericUpDown4.TabIndex = 28;
@@ -317,7 +323,7 @@
             // numericUpDown5
             // 
             numericUpDown5.Location = new Point(365, 214);
-            numericUpDown5.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numericUpDown5.Maximum = 254;
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(62, 23);
             numericUpDown5.TabIndex = 29;
