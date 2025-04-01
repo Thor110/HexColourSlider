@@ -347,7 +347,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(10, 355);
+            radioButton1.Location = new Point(30, 355);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(75, 19);
             radioButton1.TabIndex = 31;
@@ -358,7 +358,7 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(95, 355);
+            radioButton2.Location = new Point(115, 355);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(75, 19);
             radioButton2.TabIndex = 31;
@@ -368,7 +368,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(195, 355);
+            radioButton3.Location = new Point(215, 355);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(75, 19);
             radioButton3.TabIndex = 31;
@@ -378,7 +378,7 @@
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(290, 355);
+            radioButton4.Location = new Point(310, 355);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(75, 19);
             radioButton4.TabIndex = 31;
@@ -388,7 +388,7 @@
             // radioButton5
             // 
             radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(390, 355);
+            radioButton5.Location = new Point(410, 355);
             radioButton5.Name = "radioButton5";
             radioButton5.Size = new Size(75, 19);
             radioButton5.TabIndex = 31;
@@ -399,7 +399,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 410);
+            ClientSize = new Size(535, 420);
             Controls.Add(button1);
             Controls.Add(button2);
             Controls.Add(radioButton1);
@@ -436,7 +436,7 @@
             Controls.Add(trackBar0);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "Form1";
-            Text = "Colour Code Previewer";
+            Text = "Colour Code Executable Patcher for SWKotOR2";
             ((System.ComponentModel.ISupportInitialize)trackBar0).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).EndInit();
             ((System.ComponentModel.ISupportInitialize)trackBar2).EndInit();
