@@ -175,7 +175,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(73, 9);
+            label4.Location = new Point(80, 9);
             label4.Name = "label4";
             label4.Size = new Size(40, 15);
             label4.TabIndex = 13;
@@ -211,11 +211,11 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(164, 9);
+            label5.Location = new Point(138, 9);
             label5.Name = "label5";
             label5.Size = new Size(76, 15);
             label5.TabIndex = 17;
-            label5.Text = "HEX (float32)";
+            label5.Text = "HEX (float32) Little Endian";
             // 
             // numericUpDown0
             // 
@@ -286,16 +286,16 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(284, 9);
+            label7.Location = new Point(290, 9);
             label7.Name = "label7";
             label7.Size = new Size(33, 15);
             label7.TabIndex = 25;
-            label7.Text = "Float";
+            label7.Text = "Float (0-1)";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(364, 9);
+            label8.Location = new Point(380, 9);
             label8.Name = "label8";
             label8.Size = new Size(29, 15);
             label8.TabIndex = 26;
@@ -330,7 +330,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(443, 355);
+            button2.Location = new Point(443, 354);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -341,7 +341,7 @@
             // radioButton1
             // 
             radioButton1.AutoSize = true;
-            radioButton1.Location = new Point(30, 355);
+            radioButton1.Location = new Point(40, 355);
             radioButton1.Name = "radioButton1";
             radioButton1.Size = new Size(75, 19);
             radioButton1.TabIndex = 31;
@@ -352,7 +352,7 @@
             // radioButton2
             // 
             radioButton2.AutoSize = true;
-            radioButton2.Location = new Point(115, 355);
+            radioButton2.Location = new Point(125, 355);
             radioButton2.Name = "radioButton2";
             radioButton2.Size = new Size(75, 19);
             radioButton2.TabIndex = 31;
@@ -362,7 +362,7 @@
             // radioButton3
             // 
             radioButton3.AutoSize = true;
-            radioButton3.Location = new Point(215, 355);
+            radioButton3.Location = new Point(227, 355);
             radioButton3.Name = "radioButton3";
             radioButton3.Size = new Size(75, 19);
             radioButton3.TabIndex = 31;
@@ -372,7 +372,7 @@
             // radioButton4
             // 
             radioButton4.AutoSize = true;
-            radioButton4.Location = new Point(310, 355);
+            radioButton4.Location = new Point(324, 355);
             radioButton4.Name = "radioButton4";
             radioButton4.Size = new Size(75, 19);
             radioButton4.TabIndex = 31;
