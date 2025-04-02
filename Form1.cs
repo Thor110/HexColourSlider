@@ -26,14 +26,11 @@ namespace HexColourSlider
             pictureBoxes = new PictureBox[] { pictureBox0, pictureBox1, pictureBox2, pictureBox3 };
             floatboxes = new System.Windows.Forms.TextBox[] { textBox0, textBox1, textBox2 };
             hexboxes = new System.Windows.Forms.TextBox[] { textBox3, textBox4, textBox5 };
-            // inform user of limitations of not using the editable executable.
-            // Disc // LegacyPC (Steam) // Legacy (GoG)
-            if (File.Exists("swupdate.exe") || File.Exists("DirectX/DSETUP.dll"))
-            {
+            if (File.Exists("Miles/Mssa3d.m3d"))// Disc // LegacyPC (Steam) // Legacy (GoG)
+            { // inform user of limitations of not using the editable executable.
                 MessageBox.Show("If using any of the following versions of the game : Disc or LegacyPC (Steam). Please be sure to use the editable executable!");
                 Process.Start(new ProcessStartInfo("https://deadlystream.com/files/file/1321-kotor-2-editable-executable/") { UseShellExecute = true });
-            }
-            // some hard coded updates to the form controls to limit the range of the colour values to ~0.1 - ~0.9 and force a value update call.
+            } // some hard coded updates to the form controls to limit the range of the colour values to ~0.1 - ~0.9 and force a value update call to calculate.
             numericUpDown3.Minimum = 1;
             numericUpDown4.Minimum = 1;
             numericUpDown5.Minimum = 1;
@@ -85,29 +82,10 @@ namespace HexColourSlider
                 MessageBox.Show("Executable file not found, please place this program inside the game folder next to the swkotor2.exe file.");
                 return;
             }
-            if (radioButton1.Checked) // dialog colour
-            {
-                DialogChanges();
-            }
-            else if (radioButton2.Checked) // button border colour
-            {
-                ButtonChanges();
-            }
-            else if (radioButton3.Checked) // status effects colour
-            {
-                StatusChanges();
-            }
-            else if (radioButton4.Checked) // text highlight colour
-            {
-                HighlightChanges();
-            }
-            else if (radioButton5.Checked) // patch all colour values
-            {
-                DialogChanges();
-                ButtonChanges();
-                StatusChanges();
-                HighlightChanges();
-            }
+            if (radioButton1.Checked)       { DialogChanges(); } // dialog colour
+            else if (radioButton2.Checked)  { ButtonChanges(); } // button border colour
+            else if (radioButton3.Checked)  { StatusChanges(); } // status effects colour
+            else if (radioButton4.Checked)  { HighlightChanges(); } // text highlight colour
             MessageBox.Show("The executable has been patched.");
         }
         // find the offsets in the LegacyPC Executable or advise changing to the editable executable.
@@ -125,12 +103,10 @@ namespace HexColourSlider
             // version check
             var offsets = new Dictionary<string, (long, long, long)>
             {
+                ["Miles/Mssa3d.m3d"] = (0x425D34L, 0x425D38L, 0x425D3CL),   //Disc 1.0b Editable Executable Version
                 ["steam_api.dll"] = (0x5862FCL, 0x58575CL, 0x59DBB0L),      //Steam Aspyr
                 ["gog.ico"] = (0x585084L, 0x584B24L, 0x5850C8L),            //GoG Aspyr
                 ["kwrapper.dll"] = (0x585084L, 0x584B24L, 0x5850C8L),       //Amazon Aspyr
-                ["swupdate.exe"] = (0x425D34L, 0x425D38L, 0x425D3CL),       //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0x425D34L, 0x425D38L, 0x425D3CL), //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0x426E34L, 0x426E38L, 0x426E3CL), //LegacyPC actual offsets
             };
             PatchChanges(offsets);
         }
@@ -140,12 +116,10 @@ namespace HexColourSlider
             // version check
             var offsets = new Dictionary<string, (long, long, long)>
             {
+                ["Miles/Mssa3d.m3d"] = (0x425D1CL, 0x425D20L, 0x425D24L),   //Disc 1.0b Editable Executable Version
                 ["steam_api.dll"] = (0x58C530L, 0x58AA98L, 0x5A03ACL),      //Steam Aspyr
                 ["gog.ico"] = (0x5864ACL, 0x589ED8L, 0x589F08L),            //GoG Aspyr
                 ["kwrapper.dll"] = (0x5864ACL, 0x589ED8L, 0x589F08L),       //Amazon Aspyr
-                ["swupdate.exe"] = (0x425D1CL, 0x425D20L, 0x425D24L),       //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0x425D1CL, 0x425D20L, 0x425D24L), //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0xL, 0xL, 0xL), //LegacyPC actual offsets are unknown
             };
             PatchChanges(offsets);
         }
@@ -154,12 +128,10 @@ namespace HexColourSlider
             // version check
             var offsets = new Dictionary<string, (long, long, long)>
             {
+                ["Miles/Mssa3d.m3d"] = (0x425D40L, 0x425D44L, 0x425D48L),   //Disc 1.0b Editable Executable Version
                 ["steam_api.dll"] = (0x59AF70L, 0x59CE40L, 0x585760L),      //Steam Aspyr
                 ["gog.ico"] = (0x589F04L, 0x589EE8L, 0x584B28L),            //GoG Aspyr
                 ["kwrapper.dll"] = (0x589F04L, 0x589EE8L, 0x584B28L),       //Amazon Aspyr
-                ["swupdate.exe"] = (0x425D40L, 0x425D44L, 0x425D48L),       //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0x425D40L, 0x425D44L, 0x425D48L), //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0xL, 0xL, 0xL), //LegacyPC actual offsets are unknown
             };
             PatchChanges(offsets);
         }
@@ -168,50 +140,33 @@ namespace HexColourSlider
             // version check
             var offsets = new Dictionary<string, (long, long, long)>
             {
+                ["Miles/Mssa3d.m3d"] = (0x425D28L, 0x425D2CL, 0x425D30L),   //Disc 1.0b Editable Executable Version
                 ["steam_api.dll"] = (0x58575CL, 0x58575CL, 0x58A978L),      //Steam Aspyr
                 ["gog.ico"] = (0x584B24L, 0x584B24L, 0x587BD0L),            //GoG Aspyr
                 ["kwrapper.dll"] = (0x584B24L, 0x584B24L, 0x587BD0L),       //Amazon Aspyr
-                ["swupdate.exe"] = (0x425D28L, 0x425D2CL, 0x425D30L),       //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0x425D28L, 0x425D2CL, 0x425D30L), //Disc 1.0b Editable Executable Version
-                //["DirectX/DSETUP.dll"] = (0xL, 0xL, 0xL), //LegacyPC actual offsets are unknown
             };
             PatchChanges(offsets);
         }
         private void PatchChanges(Dictionary<string, (long, long, long)> offsets)
         {
-            //RED
-            string[] hexValuesR = textBox3.Text.Split(' ');
+            string[] hexValuesR = textBox3.Text.Split(' '); // RED
             byte[] bytesR = {   Convert.ToByte(hexValuesR[0], 16),
                                 Convert.ToByte(hexValuesR[1], 16),
                                 Convert.ToByte(hexValuesR[2], 16),
                                 Convert.ToByte(hexValuesR[3], 16) };
-            //GREEN
-            string[] hexValuesG = textBox4.Text.Split(' ');
+            string[] hexValuesG = textBox4.Text.Split(' '); // GREEN
             byte[] bytesG = {   Convert.ToByte(hexValuesG[0], 16),
                                 Convert.ToByte(hexValuesG[1], 16),
                                 Convert.ToByte(hexValuesG[2], 16),
                                 Convert.ToByte(hexValuesG[3], 16) };
-            //BLUE
-            string[] hexValuesB = textBox5.Text.Split(' ');
+            string[] hexValuesB = textBox5.Text.Split(' '); // BLUE
             byte[] bytesB = {   Convert.ToByte(hexValuesB[0], 16),
                                 Convert.ToByte(hexValuesB[1], 16),
                                 Convert.ToByte(hexValuesB[2], 16),
                                 Convert.ToByte(hexValuesB[3], 16) };
-            // patch changes
-            foreach (var (file, offset) in offsets)
+            foreach (var (file, offset) in offsets) // patch changes
             {
-                if (File.Exists("Miles/Mssa3d.m3d")) // if this file is found, the version is LegacyPC (Steam), Legacy (GoG) or Disc.
-                {
-                    var fourthElement = offsets.ElementAt(3);
-                    replacements = new List<Tuple<long, byte[]>>()
-                    {
-                        Tuple.Create(fourthElement.Value.Item1, bytesR),
-                        Tuple.Create(fourthElement.Value.Item2, bytesG),
-                        Tuple.Create(fourthElement.Value.Item3, bytesB),
-                    };
-                    break;
-                }
-                if (File.Exists(file)) // otherwise, the version is Steam, GoG or Amazon Aspyr.
+                if (File.Exists(file)) // version specific file check.
                 {
                     replacements = new List<Tuple<long, byte[]>>()
                     {

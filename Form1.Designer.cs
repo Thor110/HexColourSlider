@@ -61,7 +61,6 @@
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
             radioButton4 = new RadioButton();
-            radioButton5 = new RadioButton();
             ((System.ComponentModel.ISupportInitialize)trackBar0).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)trackBar2).BeginInit();
@@ -331,7 +330,7 @@
             // 
             // button2
             // 
-            button2.Location = new Point(443, 377);
+            button2.Location = new Point(443, 355);
             button2.Name = "button2";
             button2.Size = new Size(75, 23);
             button2.TabIndex = 30;
@@ -380,27 +379,16 @@
             radioButton4.Text = "Text Highlight";
             radioButton4.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
-            // 
-            radioButton5.AutoSize = true;
-            radioButton5.Location = new Point(410, 355);
-            radioButton5.Name = "radioButton5";
-            radioButton5.Size = new Size(75, 19);
-            radioButton5.TabIndex = 31;
-            radioButton5.Text = "Patch All";
-            radioButton5.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(535, 420);
+            ClientSize = new Size(535, 395);
             Controls.Add(button2);
             Controls.Add(radioButton1);
             Controls.Add(radioButton2);
             Controls.Add(radioButton3);
             Controls.Add(radioButton4);
-            Controls.Add(radioButton5);
             Controls.Add(numericUpDown5);
             Controls.Add(numericUpDown4);
             Controls.Add(numericUpDown3);
@@ -481,6 +469,5 @@
         private RadioButton radioButton2;
         private RadioButton radioButton3;
         private RadioButton radioButton4;
-        private RadioButton radioButton5;
     }
 }
