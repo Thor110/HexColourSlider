@@ -71,7 +71,8 @@ namespace HexColourSlider
             pictureBoxes[index].BackColor = Color.FromArgb((index == 0) ? RGB[0] : 0, (index == 1) ? RGB[1] : 0, (index == 2) ? RGB[2] : 0);
             pictureBoxes[3].BackColor = Color.FromArgb(RGB[0], RGB[1], RGB[2]);
             floatboxes[index].Text = basic.ToString();
-            hexboxes[index].Text = BitConverter.ToUInt32(BitConverter.GetBytes(basic), 0).ToString("X8").Insert(2, " ").Insert(5, " ").Insert(8, " ");
+            //hexboxes[index].Text = BitConverter.ToUInt32(BitConverter.GetBytes(basic), 0).ToString("X8").Insert(2, " ").Insert(5, " ").Insert(8, " ");
+            hexboxes[index].Text = BitConverter.ToString(BitConverter.GetBytes(basic)).Replace("-", " ");
         }
         private void CalculateBasicRatio(int value)
         {
