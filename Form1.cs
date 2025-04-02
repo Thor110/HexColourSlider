@@ -71,31 +71,12 @@ namespace HexColourSlider
             pictureBoxes[index].BackColor = Color.FromArgb((index == 0) ? RGB[0] : 0, (index == 1) ? RGB[1] : 0, (index == 2) ? RGB[2] : 0);
             pictureBoxes[3].BackColor = Color.FromArgb(RGB[0], RGB[1], RGB[2]);
             floatboxes[index].Text = basic.ToString();
-            //hexboxes[index].Text = BitConverter.ToUInt32(BitConverter.GetBytes(basic), 0).ToString("X8").Insert(2, " ").Insert(5, " ").Insert(8, " ");
             hexboxes[index].Text = BitConverter.ToString(BitConverter.GetBytes(basic)).Replace("-", " ");
         }
         private void CalculateBasicRatio(int value)
         {
             basic = (float)value / range;
             ratio = (int)(basic * 255);
-        }
-        private void R3D_Click()
-        {
-            int maximum = 2147483647;
-            for (int current = (int)numericUpDown0.Value; current <= maximum; current++)
-            {
-                string message = current.ToString("X8");
-                if (message.EndsWith("3D"))
-                {
-                    message = message.Insert(2, " ").Insert(5, " ").Insert(8, " ");
-                    textBox3.Text = message;
-                    numericUpDown0.Text = message;
-                    CalculateBasicRatio(current);
-                    trackBar0.Value = current;
-                    numericUpDown3.Text = ratio.ToString();
-                    break;
-                }
-            }
         }
         private void patch_Click(object sender, EventArgs e)
         {
@@ -104,7 +85,6 @@ namespace HexColourSlider
                 MessageBox.Show("Executable file not found, please place this program inside the game folder next to the swkotor2.exe file.");
                 return;
             }
-            R3D_Click(); // update red value to one that ends in the bytes 3D to prevent breaking the camera on Aspyr versions of the game.
             if (radioButton1.Checked) // dialog colour
             {
                 DialogChanges();
@@ -134,6 +114,14 @@ namespace HexColourSlider
         // currently relying on the user to be using the editable executable.
         private void DialogChanges()
         {
+            if (!File.Exists("Miles/Mssa3d.m3d")) // Aspyr version of the game
+            {
+                if (numericUpDown3.Value > 31 || numericUpDown3.Value < 8)
+                {
+                    numericUpDown3.Value = 31;
+                    MessageBox.Show("When patching the Aspyr version of the game, the red value for the dialog colour is limited to between 8-31. (RGB)");//31-8 RGB//0.02 and 0.12 float
+                } // update red value to one that ends in the bytes 3D to prevent breaking the camera on Aspyr versions of the game.
+            }
             // version check
             var offsets = new Dictionary<string, (long, long, long)>
             {
