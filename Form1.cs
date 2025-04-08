@@ -18,6 +18,7 @@ namespace HexColourSlider
         private System.Windows.Forms.TextBox[] floatboxes;
         private System.Windows.Forms.TextBox[] hexboxes;
         private List<Tuple<long, byte[]>> replacements = null!;
+        private Dictionary<string, (long, long, long)> offsets = new Dictionary<string, (long, long, long)>();
         public Form1()
         {
             InitializeComponent();
@@ -86,16 +87,25 @@ namespace HexColourSlider
             else if (radioButton2.Checked)  { ButtonChanges(); }                // button border colour
             else if (radioButton3.Checked)  { StatusChanges(); }                // status effects colour
             else if (radioButton4.Checked)  { HighlightChanges(); }             // text highlight colour
+            PatchChanges();
             MessageBox.Show("The executable has been patched.");
         }
         /// <summary>
         /// NOTES : The offsets for the LegacyPC Executable are not currently known.
-        /// find the offsets in the LegacyPC Executable or advise changing to the editable executable.
+        /// Editing the Steam LegacyPC Executable results in error code 51 when starting the game.
+        /// 
+        /// find the offsets in the LegacyPC Executable? or advise changing to the editable executable.
         /// currently relying on the user to be using the editable executable.
         /// checking the files in the current order is required to ensure the correct offsets are used.
-        /// while the order could change a little bit, the check for Miles/Mssa3d.m3d must be done before gog.ico
-        /// because in the gog aspyr version of the game the gog.ico file is present but the Miles/Mssa3d.m3d file is not.
-        /// so if the check for the gog.ico file would be done first the offsets would be incorrect.
+        /// 
+        /// ["Miles/Mssa3d.m3d"]
+        /// this file is only present in the editable executable version of the game.
+        /// ["steam_api.dll"]
+        /// steam_api.dll is only present in the Steam Aspyr version of the game.
+        /// ["Miles/binkawin.asi"]
+        /// the check for "Miles/binkawin.asi" must be done last, because it exists in all three Aspyr versions of the game.
+        /// IE : if steam_api.dll doesn't exist, then the game is not the Steam Aspyr version.
+        /// it is either the GoG or Amazon Aspyr version, which share the same offsets.
         /// </summary>
         private void DialogChanges()
         {
@@ -107,49 +117,44 @@ namespace HexColourSlider
                     MessageBox.Show("When patching the Aspyr version of the game, the red value for the dialog colour is limited to between 8-31. (RGB)");//31-8 RGB//0.02 and 0.12 float
                 } // update red value to one that ends in the bytes 3D to prevent breaking the camera on Aspyr versions of the game.
             }
-            var offsets = new Dictionary<string, (long, long, long)>            // Version Check
+            offsets = new Dictionary<string, (long, long, long)>            // Version Check
             {
                 ["Miles/Mssa3d.m3d"]    = (0x425D34L, 0x425D38L, 0x425D3CL),    // Disc 1.0b Editable Executable Version
+                                                                                // This file will only exist in the editable executable version of the game.
                 ["steam_api.dll"]       = (0x5862FCL, 0x58575CL, 0x59DBB0L),    // Steam Aspyr
-                ["gog.ico"]             = (0x585084L, 0x584B24L, 0x5850C8L),    // GoG Aspyr
-                ["kwrapper.dll"]        = (0x585084L, 0x584B24L, 0x5850C8L),    // Amazon Aspyr
+                                                                                // This file will only exist in the Steam Aspyr version of the game.
+                ["Miles/binkawin.asi"]  = (0x585084L, 0x584B24L, 0x5850C8L),    // GoG or Amazon Aspyr
+                                                                                // This file only exists in the Aspyr versions of the game. ( Steam, Amazon, GoG )
             };
-            PatchChanges(offsets);
         }
         private void ButtonChanges()
         {
-            var offsets = new Dictionary<string, (long, long, long)>            // Version Check
+            offsets = new Dictionary<string, (long, long, long)>            // Version Check
             {
                 ["Miles/Mssa3d.m3d"]    = (0x425D1CL, 0x425D20L, 0x425D24L),    // Disc 1.0b Editable Executable Version
                 ["steam_api.dll"]       = (0x58C530L, 0x58AA98L, 0x5A03ACL),    // Steam Aspyr
-                ["gog.ico"]             = (0x5864ACL, 0x589ED8L, 0x589F08L),    // GoG Aspyr
-                ["kwrapper.dll"]        = (0x5864ACL, 0x589ED8L, 0x589F08L),    // Amazon Aspyr
+                ["Miles/binkawin.asi"]  = (0x5864ACL, 0x589ED8L, 0x589F08L),    // GoG or Amazon Aspyr
             };
-            PatchChanges(offsets);
         }
         private void StatusChanges()
         {
-            var offsets = new Dictionary<string, (long, long, long)>            // Version Check
+            offsets = new Dictionary<string, (long, long, long)>            // Version Check
             {
                 ["Miles/Mssa3d.m3d"]    = (0x425D40L, 0x425D44L, 0x425D48L),    // Disc 1.0b Editable Executable Version
                 ["steam_api.dll"]       = (0x59AF70L, 0x59CE40L, 0x585760L),    // Steam Aspyr
-                ["gog.ico"]             = (0x589F04L, 0x589EE8L, 0x584B28L),    // GoG Aspyr
-                ["kwrapper.dll"]        = (0x589F04L, 0x589EE8L, 0x584B28L),    // Amazon Aspyr
+                ["Miles/binkawin.asi"]  = (0x589F04L, 0x589EE8L, 0x584B28L),    // GoG or Amazon Aspyr
             };
-            PatchChanges(offsets);
         }
         private void HighlightChanges()
         {
-            var offsets = new Dictionary<string, (long, long, long)>            // Version Check
+            offsets = new Dictionary<string, (long, long, long)>            // Version Check
             {
                 ["Miles/Mssa3d.m3d"]    = (0x425D28L, 0x425D2CL, 0x425D30L),    // Disc 1.0b Editable Executable Version
                 ["steam_api.dll"]       = (0x58575CL, 0x58575CL, 0x58A978L),    // Steam Aspyr
-                ["gog.ico"]             = (0x584B24L, 0x584B24L, 0x587BD0L),    // GoG Aspyr
-                ["kwrapper.dll"]        = (0x584B24L, 0x584B24L, 0x587BD0L),    // Amazon Aspyr
+                ["Miles/binkawin.asi"]  = (0x584B24L, 0x584B24L, 0x587BD0L),    // GoG or Amazon Aspyr
             };
-            PatchChanges(offsets);
         }
-        private void PatchChanges(Dictionary<string, (long, long, long)> offsets)
+        private void PatchChanges()
         {
             string[] hexValuesR = textBox3.Text.Split(' ');                     // RED
             byte[] bytesR = {   Convert.ToByte(hexValuesR[0], 16),
